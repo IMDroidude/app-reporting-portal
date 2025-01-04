@@ -30,12 +30,12 @@ export const routes = [
         path: "/profile",
         element: <Projects />,
       },
-      // {
-      //   icon: <UserCircleIcon {...icon} />,
-      //   name: "profile",
-      //   path: "/profile",
-      //   element: <Profile />,
-      // },
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "profile",
+        path: "/profile",
+        element: <Profile />,
+      },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "tables",
