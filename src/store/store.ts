@@ -1,7 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { azureApi } from './services/azure-api-service'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [azureApi.reducerPath]: azureApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(azureApi.middleware),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -27,7 +27,13 @@ export const routes = [
       {
         icon: <UserCircleIcon {...icon} />,
         name: "project",
-        path: "/profile",
+        path: "/project",
+        element: <Projects />,
+      },
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "users",
+        path: "/users",
         element: <Projects />,
       },
       // {
@@ -42,12 +48,12 @@ export const routes = [
         path: "/tables",
         element: <Tables />,
       },
-      {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
-        path: "/notifications",
-        element: <Notifications />,
-      },
+      // {
+      //   icon: <InformationCircleIcon {...icon} />,
+      //   name: "notifications",
+      //   path: "/notifications",
+      //   element: <Notifications />,
+      // },
     ],
   },
   // {
