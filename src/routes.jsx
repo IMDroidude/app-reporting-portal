@@ -26,9 +26,9 @@ export const routes = [
       },
       // {
       //   icon: <UserCircleIcon {...icon} />,
-      //   name: "project",
-      //   path: "/project",
-      //   element: <Projects />,
+      //   name: "team-members",
+      //   path: "/team-members",
+      //   element: <Members />,
       // },
       // {
       //   icon: <UserCircleIcon {...icon} />,
