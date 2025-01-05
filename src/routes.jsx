@@ -24,18 +24,18 @@ export const routes = [
         path: "/home",
         element: <Home />,
       },
-      {
-        icon: <UserCircleIcon {...icon} />,
-        name: "project",
-        path: "/project",
-        element: <Projects />,
-      },
-      {
-        icon: <UserCircleIcon {...icon} />,
-        name: "users",
-        path: "/users",
-        element: <Projects />,
-      },
+      // {
+      //   icon: <UserCircleIcon {...icon} />,
+      //   name: "project",
+      //   path: "/project",
+      //   element: <Projects />,
+      // },
+      // {
+      //   icon: <UserCircleIcon {...icon} />,
+      //   name: "users",
+      //   path: "/users",
+      //   element: <Projects />,
+      // },
       // {
       //   icon: <UserCircleIcon {...icon} />,
       //   name: "profile",
