@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Project } from '../types/types';
+import { Commit, Project, Repository } from '../types/types';
 
 // Replace with your Azure DevOps organization name and personal access token
 const organization = 'devops-ais';
@@ -20,8 +20,33 @@ export const azureApi = createApi({
       query: () => 'projects?api-version=7.1-preview.4',
       transformResponse: (response: any) => response.value, // Extract the projects array
     }),
+    fetchRepositories: builder.query<Repository[], string>({
+      // query: (projectName) =>
+      //   `${projectName}/_apis/git/repositories?api-version=7.1-preview.1`,
+      query: (projectName) => {
+        const url = `${projectName}/_apis/git/repositories?api-version=7.1-preview.1`;
+        console.log('Fetching repositories URL:', url);  // Log the final URL
+        return url;
+      },
+      transformResponse: (response: any) => response.value, // Extract the repositories array
+    }),
+    fetchCommits: builder.query<Commit[], { projectName: string; repoId: string }>({
+      // query: ({ projectName, repoId }) =>
+      //   `${projectName}/_apis/git/repositories/${repoId}/commits?searchCriteria.fromDate=${new Date()
+      //     .toISOString()
+      //     .split('T')[0]}&api-version=7.1-preview.1`,
+      query: ({ projectName, repoId }) => {
+        const url = `${projectName}/_apis/git/repositories/${repoId}/commits?searchCriteria.fromDate=${new Date()
+          .toISOString()
+          .split('T')[0]}&api-version=7.1-preview.1`;
+        console.log('Fetching commits URL:', url);  // Log the final URL
+        return url;
+      },
+      transformResponse: (response: any) => response.value, // Extract the commits array
+    }),
   }),
 });
 
 
-export const { useFetchProjectsQuery } = azureApi;
+export const { useFetchProjectsQuery , useFetchRepositoriesQuery,
+  useFetchCommitsQuery,} = azureApi;

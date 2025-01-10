@@ -10,9 +10,26 @@ import {
 } from "@material-tailwind/react";
 
 import { useFetchUsersQuery } from "@/store/services/azure-organization-service";
+import { data } from "autoprefixer";
 
 export function Members() {
-    const { data: members } = useFetchUsersQuery();
+    const { data: users, error, isLoading } = useFetchUsersQuery();
+
+    if (isLoading) return <p>Loading users...</p>;
+    if (error) return <p>Something went wrong! {JSON.stringify(error)}</p>;
+
+    return (
+        <div>
+            <h1>Azure DevOps Users</h1>
+            <ul>
+                {users?.map((user) => (
+                    <li key={user.id}>
+                        {user.displayName} ({user.principalName})
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 
     const className = `py-3 px-5 border-b border-blue-gray-50`;
     return (

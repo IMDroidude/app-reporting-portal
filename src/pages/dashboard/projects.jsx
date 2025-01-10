@@ -65,7 +65,7 @@ export function Projects() {
                     href="#"
                     className="text-xs font-semibold text-blue-gray-600"
                   >
-                    Repository List
+                    Under Maintenance
                   </Typography>
                 </td>
               </tr>
